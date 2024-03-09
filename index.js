@@ -15,8 +15,14 @@ const delay = ms => {
 
 
 
+const users = [
+    { name: 'Mango', active: true },
+    { name: 'Poly', active: false },
+    { name: 'Ajax', active: true },
+    { name: 'Lux', active: false },
+  ];
 
-  const toggleUserState = (allUsers, userName) => {
+const toggleUserState = (allUsers, userName) => {
     return new Promise((resolve) => {
       const updatedUsers = allUsers.map((user) =>
         user.name === userName ? { ...user, active: !user.active } : user
@@ -26,10 +32,10 @@ const delay = ms => {
     });
   };
   
-  const loggers = (updatedUsers) => console.table(updatedUsers);
+  const logUsers = (updatedUsers) => console.table(updatedUsers); 
   
-  toggleUserState(users, 'Mango').then(loggers);
-  toggleUserState(users, 'Lux').then(loggers);
+  toggleUserState(users, 'Mango').then(logUsers); 
+  toggleUserState(users, 'Lux').then(logUsers);
 
 
 
